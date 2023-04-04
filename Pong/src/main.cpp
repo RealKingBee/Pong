@@ -29,11 +29,22 @@ int main()
 		ClearBackground(BLACK);
 		BeginDrawing();
 
+		leftPaddle.Move(KEY_W, KEY_S);
+		rightPaddle.Move(KEY_UP, KEY_DOWN);
+
 		leftPaddle.Draw();
 		rightPaddle.Draw();
 
+		//ball.CheckCollisionCircleRec({ ball.yPos, ball.xPos }, ball.ballRadius, { 20, 100, 10, 100 });
+
 		DrawCircle(ball.xPos, ball.yPos, ball.ballRadius, WHITE);
-		ball.Move();
+		ball.Move(leftPaddle, rightPaddle);
+
+		//if (CheckCollisionCircleRec({ ball.yPos, ball.xPos }, ball.ballRadius, { 20, 100, 10, 100 }))
+		//{
+		//	std::cout << "hit" << std::endl;;
+		//	ball.moveX -= 1;
+		//}
 		
 		DrawFPS(10, 10);
 		EndDrawing();

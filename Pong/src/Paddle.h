@@ -1,19 +1,22 @@
 #pragma once
 #include <raylib.h>
+
 class Paddle
 {
 public:
 	Paddle(Vector2 position, float width, float height, Color color);
-	void Move();
+	void Move(int up, int down);
 	void Draw();
+	Vector2 position;
+	float width;
+	float height;
 
 
 private:
-	Vector2 position;
-	float speed;
 	Color color;
-	int width;
-	int height;
+	float speed;
+	int up;
+	int down;
 
 protected:
 
