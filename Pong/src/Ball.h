@@ -5,12 +5,12 @@ class Ball
 public:
 	Ball();
 	void Move();
-	int ballRadius = 10;
+
+	int ballRadius;
 	float moveX;
 	float moveY;
 	float xPos;
 	float yPos;
-
 
 private:
 

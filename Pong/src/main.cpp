@@ -1,6 +1,7 @@
 #include <raylib.h>
 #include <iostream>
 #include "Ball.h"
+#include "Paddle.h"
 
 static const int s_ScreenWidth = 800;
 static const int s_ScreenHeight = 450;
@@ -15,6 +16,9 @@ int main()
 
 	//declare new ball
 	Ball ball;
+	Paddle leftPaddle({ 20, 100 }, 10, 100, WHITE);
+	Paddle rightPaddle({ 770, 100 }, 10, 100, WHITE);
+
 
 	// Keep the game running until the window close button or the escape key is pressed 
 	while (!WindowShouldClose())
@@ -25,7 +29,8 @@ int main()
 		ClearBackground(BLACK);
 		BeginDrawing();
 
-		DrawText("Hello James!", 50, 50, 24, BLUE);
+		leftPaddle.Draw();
+		rightPaddle.Draw();
 
 		DrawCircle(ball.xPos, ball.yPos, ball.ballRadius, WHITE);
 		ball.Move();
@@ -38,4 +43,4 @@ int main()
 	CloseWindow();
 
 	return 0;
-}
+};

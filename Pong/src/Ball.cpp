@@ -7,6 +7,7 @@ Ball::Ball()
 	this->yPos = (float)GetScreenHeight() / 2;
 	this->moveX = 3;
 	this->moveY = 3;
+	this->ballRadius = 10;
 }
 
 void Ball::Move()
@@ -14,25 +15,23 @@ void Ball::Move()
 	xPos += moveX;
 	yPos += moveY;
 
-	if (xPos > GetScreenWidth())
+	if (xPos > GetScreenWidth() - ballRadius)
 	{
 		moveX = -moveX;
 	}
 
-	if (xPos < 0)
+	if (xPos < 0 + ballRadius)
 	{
 		moveX = -moveX;
 	}
 
-	if (yPos > GetScreenHeight())
+	if (yPos > GetScreenHeight() - ballRadius)
 	{
-		yPos = GetScreenHeight();
 		moveY = -moveY;
 	}
 
-	if (yPos < 0)
+	if (yPos < 0 + ballRadius)
 	{
-		yPos = 0;
 		moveY = -moveY;
 	}
 
