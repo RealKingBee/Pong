@@ -21,7 +21,7 @@ int main()
 		// Do all of our drawing in here
 		BeginDrawing();
 
-		DrawText("Hello World!", 50, 50, 24, BLUE);
+		DrawText("Hello James!", 50, 50, 24, BLUE);
 
 		EndDrawing();
 	}
