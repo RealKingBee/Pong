@@ -14,10 +14,10 @@ int main()
 
 	// Set the game to run at 60 fps
 	SetTargetFPS(60);
-
 	GameManager gameManager;
+	gameManager.inMenu = true;
+	gameManager.isGameOver = false;
 
+	gameManager.MainMenu();
 	gameManager.GameRun();
-
-	return 0;
 };

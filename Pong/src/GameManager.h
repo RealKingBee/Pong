@@ -2,13 +2,16 @@
 class GameManager
 {
 public:
+	GameManager();
 	void Pause();
 	void Reset();
 	void GameOver();
 	void GameRun();
-	GameManager();
-
+	void MainMenu();
 	void UpdateScore();
+
+	bool inMenu;
+	bool isGameOver;
 
 private:
 

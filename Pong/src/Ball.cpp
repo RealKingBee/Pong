@@ -9,9 +9,9 @@ Ball::Ball()
 	this->moveX = 3;
 	this->moveY = 3;
 	this->ballRadius = 5;
+	checkColl = 0;
 	playerScore1 = 0;
 	playerScore2 = 0;
-	checkColl = 0;
 }
 
 //Draw ball position, siz and colour
@@ -48,6 +48,7 @@ void Ball::Reset()
 		checkColl = 0;
 	}
 }
+
 
 //Moves the ball, checks for collision and updates score
 void Ball::Update(Paddle& leftPaddle, Paddle& rightPaddle)
@@ -110,7 +111,7 @@ void Ball::Update(Paddle& leftPaddle, Paddle& rightPaddle)
 	{
 		if (moveX > 0)
 		{
-			//Increase in speed on the second paddle collision
+			//Increase speed on the second paddle collision
 			checkColl += 1;
 			moveX *= -1.0f;
 			if (checkColl >= 2)
