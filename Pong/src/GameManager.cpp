@@ -6,6 +6,12 @@ GameManager::GameManager()
 
 }
 
+//Updates the score for players
+void GameManager::UpdateScore()
+{
+
+}
+ //Pause the game to select menu options
 void GameManager::Pause()
 {
 
@@ -16,11 +22,13 @@ void GameManager::Reset()
 
 }
 
+//Game over screen that displays and calculates the winner
 void GameManager::GameOver()
 {
 
 }
 
+//Function that contains the whilst playing the game features
 void GameManager::Run()
 {
 	Ball ball;
