@@ -7,7 +7,7 @@ public:
 	Ball();
 	void Draw();
 	void MoveBall();
-	void Reset();
+	void ResetBall();
 	void Update(Paddle& leftPaddle, Paddle& rightPaddle);
 	int ballRadius;
 	float moveX;
@@ -17,7 +17,6 @@ public:
 	int playerScore1;
 	int playerScore2;
 	int checkColl;
-	int (*GetScore)(int playerScore);
 
 private:
 

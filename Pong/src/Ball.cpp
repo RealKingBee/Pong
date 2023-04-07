@@ -9,27 +9,26 @@ Ball::Ball()
 	this->moveX = 3;
 	this->moveY = 3;
 	this->ballRadius = 5;
-	checkColl = 0;
-	playerScore1 = 0;
-	playerScore2 = 0;
+	this->checkColl = 0;
+	this->playerScore1 = 0;
+	this->playerScore2 = 0;
 }
 
-//Draw ball position, siz and colour
+//Draw ball position, size and colour
 void Ball::Draw()
 {
-	DrawCircle(xPos, yPos, ballRadius, WHITE);
+	DrawCircle(xPos, yPos, ballRadius, YELLOW);
 }
 
-
+//Default ball movement 
 void Ball::MoveBall()
 {
-	yPos += moveY;
 	xPos += moveX;
+	yPos += moveY;
 }
 
-
 //Resets ball after score and determines what direction the ball starts
-void Ball::Reset()
+void Ball::ResetBall()
 {
 	if (xPos > GetScreenWidth() / 2)
 	{
@@ -38,6 +37,7 @@ void Ball::Reset()
 		moveX = 3;
 		moveY = 3;
 		checkColl = 0;
+		
 	}
 	else
 	{
@@ -49,16 +49,18 @@ void Ball::Reset()
 	}
 }
 
-
 //Moves the ball, checks for collision and updates score
+//References the paddle constructor and asks a variable to be assigned to it
+//Paddle constructor then has individual parameters
 void Ball::Update(Paddle& leftPaddle, Paddle& rightPaddle)
 {
 	//Movement for ball
 	MoveBall();
 
 	//Player score text
-	DrawText(TextFormat("Score = %i", playerScore1), 10, 10, 20, RED);
-	DrawText(TextFormat("Score = %i", playerScore2), 670, 10, 20, BLUE);
+	DrawText(TextFormat("%i", playerScore1), GetScreenWidth() / 2 + -20, 5, 20, RED);
+	DrawText(TextFormat("%i", playerScore2), GetScreenWidth() / 2 + +15, 5, 20, BLUE);
+	DrawRectangle(GetScreenWidth() / 2, 0, 2.5f, 30, WHITE);
 
 	//Collision checks with borders and updates score for screen width collision
 	if (xPos > GetScreenWidth() - ballRadius)
@@ -66,16 +68,16 @@ void Ball::Update(Paddle& leftPaddle, Paddle& rightPaddle)
 		playerScore1 += 1;
 		std::cout << playerScore1 << std::endl;
 
-		Reset();
+		ResetBall();
 	}
 
 	if (xPos < 0 + ballRadius)
 	{
 		playerScore2 += 1;
-		
+
 		std::cout << playerScore2 << std::endl;
 
-		Reset();
+		ResetBall();
 	}
 
 	if (yPos > GetScreenHeight() - ballRadius)
@@ -126,4 +128,5 @@ void Ball::Update(Paddle& leftPaddle, Paddle& rightPaddle)
 	}
 
 }
+
 

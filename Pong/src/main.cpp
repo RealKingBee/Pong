@@ -14,10 +14,11 @@ int main()
 
 	// Set the game to run at 60 fps
 	SetTargetFPS(60);
-	GameManager gameManager;
-	gameManager.inMenu = true;
-	gameManager.isGameOver = false;
 
+	//Instantiates GameManager default constructor
+	GameManager gameManager;
 	gameManager.MainMenu();
 	gameManager.GameRun();
+
+	//gameManager.ball->MoveBall();        SHOW TOM AND LUCAS THIS  Calls on ball object from game manager to access ball function.
 };
