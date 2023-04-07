@@ -5,8 +5,10 @@ public:
 	void Pause();
 	void Reset();
 	void GameOver();
-	void Run();
+	void GameRun();
 	GameManager();
+
+	void UpdateScore();
 
 private:
 

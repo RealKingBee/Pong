@@ -20,6 +20,14 @@ void Ball::Draw()
 	DrawCircle(xPos, yPos, ballRadius, WHITE);
 }
 
+
+void Ball::MoveBall()
+{
+	yPos += moveY;
+	xPos += moveX;
+}
+
+
 //Resets ball after score and determines what direction the ball starts
 void Ball::Reset()
 {
@@ -45,8 +53,7 @@ void Ball::Reset()
 void Ball::Update(Paddle& leftPaddle, Paddle& rightPaddle)
 {
 	//Movement for ball
-	yPos += moveY;
-	xPos += moveX;
+	MoveBall();
 
 	//Player score text
 	DrawText(TextFormat("Score = %i", playerScore1), 10, 10, 20, RED);
@@ -56,7 +63,6 @@ void Ball::Update(Paddle& leftPaddle, Paddle& rightPaddle)
 	if (xPos > GetScreenWidth() - ballRadius)
 	{
 		playerScore1 += 1;
-
 		std::cout << playerScore1 << std::endl;
 
 		Reset();
@@ -65,7 +71,7 @@ void Ball::Update(Paddle& leftPaddle, Paddle& rightPaddle)
 	if (xPos < 0 + ballRadius)
 	{
 		playerScore2 += 1;
-
+		
 		std::cout << playerScore2 << std::endl;
 
 		Reset();

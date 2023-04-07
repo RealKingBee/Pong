@@ -6,12 +6,12 @@ GameManager::GameManager()
 
 }
 
-//Updates the score for players
 void GameManager::UpdateScore()
 {
 
 }
- //Pause the game to select menu options
+
+//Pause the game to select menu options
 void GameManager::Pause()
 {
 
@@ -29,7 +29,7 @@ void GameManager::GameOver()
 }
 
 //Function that contains the whilst playing the game features
-void GameManager::Run()
+void GameManager::GameRun()
 {
 	Ball ball;
 	Paddle leftPaddle({ 20, 100 }, 10, 100, WHITE);
