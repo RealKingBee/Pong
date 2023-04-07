@@ -14,6 +14,7 @@ Paddle::Paddle(Vector2 position, float width, float height, Color color)
 
 void Paddle::Move(int up, int down)
 {
+	//Movement for paddles via key inputs
 	if (IsKeyDown(up) && position.y > 0)
 	{
 		position.y -= speed;
@@ -26,9 +27,15 @@ void Paddle::Move(int up, int down)
 
 }
 
+//Draws the paddle rectangle at the position of GetRect function
 void Paddle::Draw()
 {
-	 DrawRectangle(position.x, position.y, width, height, color);
+	DrawRectangleRec(GetRect(), color);
+}
+
+Rectangle Paddle::GetRect()
+{
+	return Rectangle{ position.x, position.y, width, height };
 }
 
 
