@@ -24,7 +24,6 @@ void Paddle::Move(int up, int down)
 	{
 		position.y += speed;
 	}
-
 }
 
 //Draws the paddle

@@ -4,13 +4,12 @@
 //Default constructor
 GameManager::GameManager()
 {
-	this->leftPaddle = new Paddle({ 20, 180 }, 10, 100, RED);
-	this->rightPaddle = new Paddle({ 770, 180 }, 10, 100, BLUE);
-	this->ball = new Ball();
+	leftPaddle = new Paddle({ 20, 180 }, 10, 100, RED);
+	rightPaddle = new Paddle({ 770, 180 }, 10, 100, BLUE);
+	ball = new Ball();
 	this->inMenu = true;
 	this->isPaused = false;
 	this->isGameOver = false;
-	this->shouldExit = false;
 }
 
 //Destructor for new objects
@@ -26,6 +25,7 @@ void GameManager::GameRun()
 {
 	//Paddle leftPaddle({ 20, 100 }, 10, 100, RED);
 	//Paddle rightPaddle({ 770, 100 }, 10, 100, BLUE);
+	//Ball ball;
 
 	while (!WindowShouldClose())
 	{
@@ -43,13 +43,10 @@ void GameManager::GameRun()
 		}
 
 		//Game over access and trigger
-		if (isGameOver == true)
-		{
-			GameOver();
-		}
 		if (ball->playerScore1 == 10 || ball->playerScore2 == 10)
 		{
 			isGameOver = true;
+			GameOver();
 		}
 
 		BeginDrawing();

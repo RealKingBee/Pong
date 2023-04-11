@@ -4,6 +4,8 @@ class GameManager
 {
 public:
 	Ball* ball;
+	Paddle* leftPaddle;
+	Paddle* rightPaddle;
 	GameManager();
 	~GameManager();
 	void Pause();
@@ -11,12 +13,9 @@ public:
 	void GameRun();
 	void MainMenu();
 	void ResetGame();
-	Paddle* leftPaddle;
-	Paddle* rightPaddle;
 	bool inMenu;
 	bool isPaused;
 	bool isGameOver;
-	bool shouldExit;
 
 private:
 

@@ -16,7 +16,7 @@ public:
 	float yPos;
 	int playerScore1;
 	int playerScore2;
-	int checkColl;
+	int checkCollCount;
 
 private:
 

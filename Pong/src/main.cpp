@@ -17,7 +17,7 @@ int main()
 
 	//Instantiates GameManager default constructor
 	GameManager gameManager;
-	gameManager.MainMenu();
+
 	gameManager.GameRun();
 
 	//gameManager.ball->MoveBall();        SHOW TOM AND LUCAS THIS  Calls on ball object from game manager to access ball function.

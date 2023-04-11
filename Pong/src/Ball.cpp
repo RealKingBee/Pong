@@ -9,7 +9,7 @@ Ball::Ball()
 	this->moveX = 3;
 	this->moveY = 3;
 	this->ballRadius = 5;
-	this->checkColl = 0;
+	this->checkCollCount = 0;
 	this->playerScore1 = 0;
 	this->playerScore2 = 0;
 }
@@ -36,8 +36,7 @@ void Ball::ResetBall()
 		yPos = GetScreenHeight() / 2;
 		moveX = 3;
 		moveY = 3;
-		checkColl = 0;
-		
+		checkCollCount = 0;
 	}
 	else
 	{
@@ -45,7 +44,7 @@ void Ball::ResetBall()
 		yPos = GetScreenHeight() / 2;
 		moveX = -3;
 		moveY = -3;
-		checkColl = 0;
+		checkCollCount = 0;
 	}
 }
 
@@ -93,15 +92,14 @@ void Ball::Update(Paddle& leftPaddle, Paddle& rightPaddle)
 	//Collision checks for ball and paddle
 	if (CheckCollisionCircleRec({ xPos, yPos }, ballRadius, leftPaddle.GetRect()))
 	{
-
 		if (moveX < 0)
 		{
 			//Increase in speed on the second paddle collision
-			checkColl += 1;
-			if (checkColl >= 2)
+			checkCollCount += 1;
+			if (checkCollCount >= 2)
 			{
 				moveX += -0.4f;
-				checkColl = 0;
+				checkCollCount = 0;
 				std::cout << "Ball speed increased." << std::endl;
 			}
 			moveX *= -1.0f;
@@ -114,16 +112,16 @@ void Ball::Update(Paddle& leftPaddle, Paddle& rightPaddle)
 		if (moveX > 0)
 		{
 			//Increase speed on the second paddle collision
-			checkColl += 1;
+			checkCollCount += 1;
 			moveX *= -1.0f;
-			if (checkColl >= 2)
+			if (checkCollCount >= 2)
 			{
 				moveX += -0.4f;
-				checkColl = 0;
+				checkCollCount = 0;
 				std::cout << "Ball speed increased." << std::endl;
 			}
 			std::cout << "hit" << std::endl;;
-
+	
 		}
 	}
 

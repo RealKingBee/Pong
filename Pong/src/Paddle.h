@@ -13,14 +13,10 @@ public:
 	float height;
 	Color color;
 	float speed;
-	int up;
-	int down;
-
 
 private:
 
 protected:
-
 
 };
 
